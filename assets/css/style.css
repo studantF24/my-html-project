@@ -1,0 +1,397 @@
+/* ==========================================================================
+   City Events – Global Styles (RTL/LTR aware)
+   - Variables, typography, layout
+   - Navbar, Hero, Carousel, Cards, Sections
+   - Forms, Footer, Utilities
+   -------------------------------------------------------------------------- */
+
+/* ===== CSS Variables ===== */
+:root {
+  --brand: #144897;
+  /* أزرق رئيسي */
+  --brand-2: #0d6efd;
+  /* أزرق Bootstrap */
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --surface: #f8f9fa;
+  /* خلفيات فاتحة للأقسام */
+  --border: #e9ecef;
+  --footer: #0d1b2a;
+  --white: #ffffff;
+}
+
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+html[dir="rtl"] body {
+  font-family: "Tajawal", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Kufi Arabic", sans-serif;
+}
+
+body {
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  color: var(--border);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: linear-gradient(135deg, #e2dee7 0%, #0501ec 100%);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #0b05b3 !important;
+}
+
+.navbar .nav-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.navbar .nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Language toggle spacing on mobile */
+@media (max-width: 991.98px) {
+
+  #langAr,
+  #langEn {
+    margin-top: .5rem;
+  }
+}
+
+/* ===== Hero (index) ===== */
+.hero {
+  min-height: 56svh;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(20, 72, 151, .45), rgba(20, 72, 151, .65)),
+    url("../img/m1.jpg") center / cover no-repeat;
+}
+
+/* ===== Carousel (index – highlights) ===== */
+.carousel .carousel-inner {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.carousel .carousel-item img {
+  width: 100%;
+  height: clamp(240px, 46vh, 520px);
+  object-fit: cover;
+}
+
+/* جعل أزرار الكاروسل مرئية على الصور الداكنة */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+}
+
+/* تسهيل قراءة التعليقات فوق الصور */
+.carousel-caption {
+  background: linear-gradient(180deg, rgba(0, 0, 0, .0), rgba(0, 0, 0, .55));
+  inset-inline: 0;
+  padding-block: 1.25rem;
+}
+
+/* ===== Sections spacing ===== */
+section {
+  scroll-margin-top: 4rem;
+}
+
+.container>.section-title,
+h2.section-title {
+  margin-bottom: .75rem;
+}
+
+/* ===== Cards ===== */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card-img-top {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.card-title {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+/* Badges for categories */
+.badge {
+  user-select: none;
+}
+
+/* Events grid spacing */
+#events .card .small {
+  color: var(--muted);
+}
+
+/* ===== Forms ===== */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--brand-2);
+  box-shadow: 0 0 0 .2rem rgba(13, 110, 253, .15);
+}
+
+.alert {
+  border-radius: .75rem;
+}
+
+/* Contact page helper text */
+.form-text {
+  color: var(--muted);
+}
+
+/* ===== Footer ===== */
+footer.footer {
+  background: var(--footer);
+  color: var(--white);
+}
+
+footer.footer a {
+  color: #cfd8ff;
+}
+
+footer.footer a:hover {
+  color: #fff;
+}
+
+/* Generic simple footer (light) */
+footer.border-top {
+  background: #fff;
+}
+
+/* ===== Utilities ===== */
+.shadow-soft {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .06);
+}
+
+.rounded-xl {
+  border-radius: 1rem;
+}
+
+#toTop {
+  cursor: pointer;
+}
+
+/* Info tile (if used) */
+.info-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  padding: .85rem 1rem;
+}
+
+/* ===== Direction-aware tweaks ===== */
+/* محاذاة تراكبية بسيطة عند التحويل للإنجليزية */
+html[dir="ltr"] .text-start-ltr {
+  text-align: left !important;
+}
+
+html[dir="ltr"] .ms-auto-ltr {
+  margin-left: auto !important;
+}
+
+/* ===== Responsive helpers ===== */
+@media (min-width: 992px) {
+  .hero .display-5 {
+    font-size: 3rem;
+  }
+}
+
+/* ===== Optional dark scheme ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ececec;
+    --muted: #b0b0b0;
+    --surface: #111827;
+    --border: #2a2f3a;
+    --white: #0b0f14;
+    --footer: #060a0f;
+  }
+
+  body {
+    background: var(--white);
+    color: var(--text);
+  }
+
+  .card {
+    border-color: var(--border);
+    background: #0f141b;
+  }
+
+  .info-tile {
+    background: #0f141b;
+    border-color: var(--border);
+  }
+
+  .carousel-caption {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .45));
+  }
+
+  .border-top {
+    border-top-color: var(--border) !important;
+  }
+}
+
+/* =========================================================
+   THEME FIX: Force Clear Light Theme + Professional Contrast
+   Paste this block at the END of style.css
+   ========================================================= */
+
+/* ألغِ أي تأثير لوضع داكن تلقائي */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --surface: #f8f9fa;
+    --border: #e9ecef;
+    --white: #ffffff;
+    --footer: #0d1b2a;
+  }
+
+  body {
+    background: #ffffff;
+    color: #1a1a1a;
+  }
+}
+
+/* إجبار السمة الفاتحة بوضوح وتباين مرتفع */
+:root {
+  --brand: #144897;
+  --brand-2: #0d6efd;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --surface: #f8f9fa;
+  --border: #e9ecef;
+  --white: #ffffff;
+  --footer: #0d1b2a;
+}
+
+body {
+  background: #ffffff !important;
+  color: var(--text) !important;
+}
+
+/* شريط علوي واضح: تدرّج بنفسجي/أزرق مع نص أبيض */
+.navbar {
+  background: linear-gradient(135deg, #9a8cff 0%, #4a6bff 60%, #144897 100%) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+}
+
+.navbar .nav-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* النموذج والمرشّحات بلون فاتح واضح */
+.form-control,
+.form-select {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border-color: #ced4da !important;
+}
+
+.form-control::placeholder {
+  color: #9aa0a6;
+}
+
+/* بطاقات بيضاء وظلال لطيفة وحدود خفيفة */
+.card {
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 .35rem 1rem rgba(0, 0, 0, .06);
+}
+
+.card-title {
+  color: var(--brand) !important;
+}
+
+/* تعليق السلايدر قابل للقراءة دائماً */
+.carousel-caption {
+  background: linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .55));
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .7);
+}
+
+/* تباين النصوص الثانوية */
+.small,
+.text-muted {
+  color: #6b6b6b !important;
+}
+
+/* تذييل داكن ونصوص فاتحة عالية التباين */
+footer.footer,
+footer.border-top {
+  background: #0d1b2a !important;
+  color: #ffffff !important;
+  border-top-color: transparent !important;
+}
+
+footer a {
+  color: #cfd8ff !important;
+}
+
+footer a:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* زر العودة للأعلى */
+#toTop {
+  color: #cfd8ff !important;
+}
+
+#toTop:hover {
+  color: #ffffff !important;
+}
+
+/* شارات Bootstrap: تأكّد من وضوحها */
+.badge.text-bg-danger,
+.badge.text-bg-primary,
+.badge.text-bg-warning,
+.badge.text-bg-success {
+  filter: none;
+  /* لا تغيّر ألوانها */
+  border: 1px solid rgba(0, 0, 0, .05);
+}
