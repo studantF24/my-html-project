@@ -60,16 +60,27 @@ function populateEventPage(){
   var lis=qsa("main ul li");
   if(lis.length){if(data.cat)lis[0].innerHTML="<strong>"+(document.documentElement.lang==="ar"?"الفئة:":"Category:")+"</strong> "+data.cat}
 }
+
 function insertTeamNames(){
-  var wrap=qs("#teamNames");if(!wrap)return;
-  var names=["دارين ريحاني","المى خاناتي","ساره عرب","يزن ابراهيم","ملدا قدور"];
-  names.forEach(function(n){
-    var s=document.createElement("span");
-    s.className="badge rounded-pill px-3 py-2";
-    s.textContent=n;
-    wrap.appendChild(s)
-  })
+  var wrap = qs("#teamNames");
+  if(!wrap) return;
+  var team = [
+    {handle:"sarah_285327", name:"ساره عرب"},
+    {handle:"alma_233809", name:"المى خاناتي"},
+    {handle:"dareen_193783", name:"دارين ريحاني"},
+    {handle:"mulda_197917", name:"ملدا قدور"},
+    {handle:"yazan_317450", name:"يزن ابراهيم"}
+  ];
+  wrap.innerHTML = "";
+  team.forEach(function(m){
+    var card = document.createElement("div");
+    card.className = "team-card shadow-sm";
+    card.innerHTML = '<div class="fw-bold">'+m.handle+'</div><div class="small text-muted">'+m.name+'</div>';
+    wrap.appendChild(card);
+  });
 }
+
+
 document.addEventListener("DOMContentLoaded",function(){
   applyLang();applyTheme();initSearch();initEventPassing();populateEventPage();insertTeamNames();
   var ar=qs("#langAr"),en=qs("#langEn"),th=qs("#themeToggle");
