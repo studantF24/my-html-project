@@ -407,3 +407,62 @@ footer.footer,footer.border-top{background:var(--footer);color:#fff}
 .theme-dark .text-muted{color:var(--muted)!important}
 #teamNames .badge{background:#ffffffd9;color:#111;border:1px solid #e9ecef}
 .theme-dark #teamNames .badge{background:#1e2a36;color:#e6e6e6;border:1px solid #243242}
+
+body{background-color:var(--bg);color:var(--text)}
+
+.navbar{background:var(--nav-bg)!important;color:var(--nav-text)!important}
+.navbar .nav-link,.navbar-brand{color:var(--nav-text)!important}
+
+.card{background:var(--card);border:1px solid var(--border)}
+.card .text-muted{color:var(--muted)!important}
+.btn-primary{background:var(--brand);border-color:var(--brand)}
+.btn-outline-primary{color:var(--brand);border-color:var(--brand)}
+.btn-outline-primary:hover{background:var(--brand);color:#fff}
+.border{border-color:var(--border)!important}
+hr{color:var(--border)}
+
+
+/* === GitHub Primer-inspired palette (Light/Dark) === */
+:root {
+  --bg: #ffffff;
+  --text: #24292f;
+  --muted: #57606a;
+  --surface: #f6f8fa;
+  --card: #ffffff;
+  --border: #d0d7de;
+  --brand: #0969da;
+  --brand-2: #1f6feb;
+  --success: #1a7f37;
+  --warning: #9a6700;
+  --danger: #cf222e;
+  --nav-bg: #ffffff;
+  --nav-text: #24292f;
+}
+.theme-dark {
+  --bg: #0d1117;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --surface: #0d1117;
+  --card: #161b22;
+  --border: #30363d;
+  --brand: #58a6ff;
+  --brand-2: #1f6feb;
+  --success: #3fb950;
+  --warning: #d29922;
+  --danger: #f85149;
+  --nav-bg: #0d1117;
+  --nav-text: #c9d1d9;
+}
+
+
+
+/* Team header cards */
+.team-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  min-width: 240px;
+  text-align: center;
+}
+.team-card + .team-card{margin-inline-start: 12px}
